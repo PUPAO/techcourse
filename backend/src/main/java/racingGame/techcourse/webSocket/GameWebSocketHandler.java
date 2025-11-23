@@ -1,4 +1,4 @@
-package racingGame.techcourse.WebSocket;
+package racingGame.techcourse.webSocket;
 
 import java.io.IOException;
 import java.util.Map;
@@ -11,6 +11,7 @@ import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 import racingGame.techcourse.Car;
 import racingGame.techcourse.MoveRule;
+import racingGame.techcourse.Round;
 
 @Component
 public class GameWebSocketHandler extends TextWebSocketHandler {
@@ -68,14 +69,14 @@ public class GameWebSocketHandler extends TextWebSocketHandler {
         res.put("playerChoice", playerChoice);
         res.put("computerChoice", computerChoice);
         res.put("result", result);
-        res.put("distance", car.getDistance());
+        res.put("round", car.getRound());
 
         session.sendMessage(new TextMessage(res.toString()));
 
         if (car.isGameOver()) {
             JSONObject finish = new JSONObject();
             finish.put("type", "FINISH");
-            finish.put("score", car.getDistance());
+            finish.put("score", car.getRound());
             finish.put("name", car.getName());
             session.sendMessage(new TextMessage(finish.toString()));
         }
@@ -85,7 +86,7 @@ public class GameWebSocketHandler extends TextWebSocketHandler {
         Car state = players.get(session.getId());
 
         // DB 저장 로직 수행
-        int score = state.getDistance();
+        int score = state.getRound();
 
         JSONObject res = new JSONObject();
         res.put("type", "FINISH");

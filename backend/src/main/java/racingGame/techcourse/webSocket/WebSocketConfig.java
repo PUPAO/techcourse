@@ -1,4 +1,4 @@
-package racingGame.techcourse.WebSocket;
+package racingGame.techcourse.webSocket;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
