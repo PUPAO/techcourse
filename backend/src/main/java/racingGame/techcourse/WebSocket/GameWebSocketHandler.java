@@ -13,7 +13,7 @@ import racingGame.techcourse.Car;
 import racingGame.techcourse.MoveRule;
 
 @Component
-public class SimpleWebSocketHandler extends TextWebSocketHandler {
+public class GameWebSocketHandler extends TextWebSocketHandler {
 
     private final Map<String, Car> players = new ConcurrentHashMap<>();
 

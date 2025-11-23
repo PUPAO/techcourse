@@ -9,15 +9,15 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
 
-    private final SimpleWebSocketHandler simpleWebSocketHandler;
+    private final GameWebSocketHandler gameWebSocketHandler;
 
-    public WebSocketConfig(SimpleWebSocketHandler simpleWebSocketHandler) {
-        this.simpleWebSocketHandler = simpleWebSocketHandler;
+    public WebSocketConfig(GameWebSocketHandler gameWebSocketHandler) {
+        this.gameWebSocketHandler = gameWebSocketHandler;
     }
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(simpleWebSocketHandler, "/connect")
+        registry.addHandler(gameWebSocketHandler, "/game/racing")
                 .setAllowedOrigins("http://localhost:3000");
     }
 }
