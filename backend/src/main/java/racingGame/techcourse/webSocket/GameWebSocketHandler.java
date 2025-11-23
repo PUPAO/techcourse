@@ -73,12 +73,22 @@ public class GameWebSocketHandler extends TextWebSocketHandler {
 
         session.sendMessage(new TextMessage(res.toString()));
 
+        car.getLogs().add(
+                new Round(
+                        car.getRound(),
+                        playerChoice,
+                        computerChoice,
+                        result
+                )
+        );
+
         if (car.isGameOver()) {
             JSONObject finish = new JSONObject();
             finish.put("type", "FINISH");
             finish.put("score", car.getRound());
             finish.put("name", car.getName());
             session.sendMessage(new TextMessage(finish.toString()));
+            session.close();
         }
     }
 
@@ -95,6 +105,7 @@ public class GameWebSocketHandler extends TextWebSocketHandler {
         session.sendMessage(new TextMessage(res.toString()));
 
         players.remove(session.getId());
+        session.close();
     }
 
     @Override

@@ -1,5 +1,7 @@
 package racingGame.techcourse;
 
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Data;
 
 @Data
@@ -8,6 +10,7 @@ public class Car {
     private String name;
     private int round;
     private int loseCount = 0;
+    private List<Round> logs = new ArrayList<>();
 
     public Car() {}
 
