@@ -83,7 +83,7 @@ public class RacingGame {
             for (Car racer : playerList) {
                 forwardOrNot(racer);
             }
-            output.showRoundResult(playerList);
+//            output.showRoundResult(playerList);
         }
     }
 
@@ -97,7 +97,7 @@ public class RacingGame {
     private Car[] createCars(String[] racerList) {
         Car[] racer = new Car[racerList.length];
         for (int i = 0; i < racerList.length; i++) {
-            racer[i] = Car.of(racerList[i]);
+//            racer[i] = Car.of(racerList[i]);
         }
         return racer;
     }
