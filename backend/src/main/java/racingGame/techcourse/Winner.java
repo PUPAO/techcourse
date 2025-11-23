@@ -28,9 +28,9 @@ public class Winner {
 
     private static void addWinnerList(Car racer, StringBuilder winnerList) {
         if (winnerList.isEmpty()) {
-            winnerList.append(racer.getRacer());
+            winnerList.append(racer.getName());
         } else {
-            winnerList.append(", ").append(racer.getRacer());
+            winnerList.append(", ").append(racer.getName());
         }
     }
 }

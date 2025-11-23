@@ -16,7 +16,7 @@ public class OutputDisplay implements Output{
     @Override
     public void showRoundResult(Car[] playerList) {
         for (Car racer : playerList) {
-            System.out.println(racer.getRacer() + " : " + "-".repeat(racer.getDistance()));
+            System.out.println(racer.getName() + " : " + "-".repeat(racer.getDistance()));
         }
     }
 
