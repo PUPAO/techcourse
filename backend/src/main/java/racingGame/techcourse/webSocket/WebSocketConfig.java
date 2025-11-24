@@ -18,6 +18,8 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(gameWebSocketHandler, "/game/racing")
-                .setAllowedOrigins("http://localhost:3000");
+                .setAllowedOrigins("http://localhost:3000",
+                        "https://racing-game-711287690194.asia-northeast3.run.app",
+                        "https://sweet-syrniki-946944.netlify.app");
     }
 }

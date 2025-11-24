@@ -47,7 +47,7 @@ function MessageSender() {
       return;
     }
 
-    const ws = new WebSocket("ws://localhost:8080/game/racing");
+    const ws = new WebSocket("wss://racing-game-711287690194.asia-northeast3.run.app/game/racing");
 
     ws.onopen = () => {
       console.log("WebSocket connected!");
