@@ -15,8 +15,7 @@ https://sweet-syrniki-946944.netlify.app/
 설치가 필요 없는 웹 기반으로 제작하여 어디서든 접근할 수 있게 구성했습니다.
 
 ### 아키텍처 구조
-
-![제목 없는 다이어그램.jpg](attachment:27a4fbe4-57eb-46df-8fd7-c9abed1e375d:ceab746c-f528-4f61-adaa-5550a16f9e51.png)
+![제목 없는 다이어그램](https://github.com/user-attachments/assets/1979ccbf-e3e5-4933-ae3e-6340f20956df)
 
 ### 웹 통신 방식을 WebSocket으로 선택한 이유
 
