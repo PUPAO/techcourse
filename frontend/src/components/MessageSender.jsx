@@ -180,7 +180,12 @@ function MessageSender() {
     <div style={{ padding: "30px", fontFamily: "Arial" }}>
       <h1>가위바위보 레이싱</h1>
 
-      {!isFinished && <h3>현재 라운드: {round}</h3>}
+      <div style={{ marginTop: "10px", fontSize: "18px" }}>
+        <strong>현재 라운드: {round}</strong>
+        <div style={{ marginTop: "5px", fontSize: "22px", letterSpacing: "3px" }}>
+          🚗{"-".repeat(round)}
+        </div>
+      </div>
 
       {isFinished && (
         <div style={{ fontSize: "20px", marginBottom: "20px", color: "red" }}>
