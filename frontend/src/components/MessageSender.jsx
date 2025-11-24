@@ -13,6 +13,11 @@ const tdStyle = {
   textAlign: "center"
 };
 
+const btnStyle = {
+  padding: "8px",
+  borderBottom: "1px solid #ddd",
+  textAlign: "center"
+};
 
 function MessageSender() {
   const [socket, setSocket] = useState(null);
@@ -183,7 +188,7 @@ function MessageSender() {
       <div style={{ marginTop: "10px", fontSize: "18px" }}>
         <strong>현재 라운드: {round}</strong>
         <div style={{ marginTop: "5px", fontSize: "22px", letterSpacing: "3px" }}>
-          🚗{"-".repeat(round)}
+          🚗{"-".repeat(round)}💨
         </div>
       </div>
 
@@ -194,12 +199,21 @@ function MessageSender() {
       )}
 
       {!isFinished && (
-        <div style={{ marginBottom: "20px" }}>
-          <button onClick={() => sendChoice("바위")}>바위</button>
-          <button onClick={() => sendChoice("보")}>보</button>
-          <button onClick={() => sendChoice("가위")}>가위</button>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            gap: "10%",
+            width: "100%",
+            height: "50px",
+            marginBottom: "20px",
+          }}>
+          <button style={btnStyle} onClick={() => sendChoice("바위")}>바위</button>
+          <button style={btnStyle} onClick={() => sendChoice("보")}>보</button>
+          <button style={btnStyle} onClick={() => sendChoice("가위")}>가위</button>
         </div>
       )}
+
 
       {roundResult && (
         <div
