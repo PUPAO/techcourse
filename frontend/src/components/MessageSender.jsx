@@ -193,98 +193,115 @@ function MessageSender() {
 
       {isFinished && (
         <div style={{ fontSize: "20px", marginBottom: "20px", color: "red" }}>
-          🎉 게임이 종료되었습니다!
+          🎉 게임이 종료되었습니다!     
+              <button
+                onClick={() => {
+                  setIsGameStarted(false);
+                  setIsFinished(false);
+                  setHistory([]);
+                  setRound(1);
+                  setRoundResult(null);
+                }}
+                style={{
+                  padding: "8px 16px",
+                  background: "gray",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "6px",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                }}
+              >
+                새 게임 시작
+              </button>
         </div>
       )}
+
+      {roundResult && (
+        <div
+          style={{
+            position: "fixed",
+            top: "20px",
+            right: "20px",
+            background: "white",
+            padding: "12px 16px",
+            borderRadius: "10px",
+            border: "1px solid #ccc",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+            zIndex: 200,
+            width: "160px"
+          }}
+        >
+          <p><strong>내 선택:</strong> {roundResult.playerChoice}</p>
+          <p><strong>컴퓨터:</strong> {roundResult.computerChoice}</p>
+          <p><strong>결과:</strong> {roundResult.result}</p>
+        </div>
+      )}
+
+      <div>
+        <h2>라운드 히스토리</h2>
+        <div
+          style={{
+            maxHeight: "55vh",
+            overflowY: "auto",
+            border: "1px solid #ddd",
+
+          }}
+        >
+          <table
+            style={{
+              width: "100%",
+              borderCollapse: "collapse",
+            }}
+          >
+            <thead>
+              <tr style={{ backgroundColor: "#f2f2f2" }}>
+                <th style={thStyle}>라운드</th>
+                <th style={thStyle}>내 선택</th>
+                <th style={thStyle}>컴퓨터 선택</th>
+                <th style={thStyle}>결과</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {history
+                .slice()
+                .reverse()
+                .map((h, index) => (
+                  <tr key={index}>
+                    <td style={tdStyle}>{h.round}</td>
+                    <td style={tdStyle}>{h.playerChoice}</td>
+                    <td style={tdStyle}>{h.computerChoice}</td>
+                    <td style={tdStyle}>{h.result}</td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       {!isFinished && (
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr 1fr",
-            gap: "10%",
-            width: "100%",
-            height: "50px",
-            marginBottom: "20px",
-          }}>
+            position: "fixed",
+            bottom: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            gap: "20px",
+            background: "white",
+            padding: "10px 20px",
+            borderRadius: "10px",
+            boxShadow: "0px 2px 8px rgba(0,0,0,0.2)",
+            zIndex: 100,
+          }}
+        >
           <button style={btnStyle} onClick={() => sendChoice("바위")}>바위</button>
           <button style={btnStyle} onClick={() => sendChoice("보")}>보</button>
           <button style={btnStyle} onClick={() => sendChoice("가위")}>가위</button>
         </div>
       )}
 
-
-      {roundResult && (
-        <div
-          style={{
-            marginTop: "15px",
-            padding: "10px",
-            border: "1px solid #ccc",
-          }}
-        >
-          <p>내 선택: {roundResult.playerChoice}</p>
-          <p>컴퓨터: {roundResult.computerChoice}</p>
-          <p>결과: {roundResult.result}</p>
-        </div>
-      )}
-
-      <div style={{ marginTop: "30px" }}>
-        <h2>라운드 히스토리</h2>
-
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            marginTop: "10px",
-          }}
-        >
-          <thead>
-            <tr style={{ backgroundColor: "#f2f2f2" }}>
-              <th style={thStyle}>라운드</th>
-              <th style={thStyle}>내 선택</th>
-              <th style={thStyle}>컴퓨터 선택</th>
-              <th style={thStyle}>결과</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {history
-              .slice()
-              .reverse()
-              .map((h, index) => (
-                <tr key={index}>
-                  <td style={tdStyle}>{h.round}</td>
-                  <td style={tdStyle}>{h.playerChoice}</td>
-                  <td style={tdStyle}>{h.computerChoice}</td>
-                  <td style={tdStyle}>{h.result}</td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-      </div>
-
-      {isFinished && (
-        <button
-          onClick={() => {
-            // 화면 초기화
-            setIsGameStarted(false);
-            setIsFinished(false);
-            setHistory([]);
-            setRound(1);
-            setRoundResult(null);
-          }}
-          style={{
-            marginTop: "20px",
-            padding: "10px 20px",
-            background: "gray",
-            color: "white",
-            border: "none",
-            borderRadius: "6px",
-          }}
-        >
-          새 게임 시작
-        </button>
-      )}
     </div>
   );
 }
