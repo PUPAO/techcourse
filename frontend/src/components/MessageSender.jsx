@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const thStyle = {
   padding: "8px",
-  borderBottom: "1px solid #ddd",
+  border: "1px solid #ddd",
   textAlign: "center",
   fontWeight: "bold"
 };
@@ -15,7 +15,6 @@ const tdStyle = {
 
 const btnStyle = {
   padding: "8px",
-  borderBottom: "1px solid #ddd",
   textAlign: "center"
 };
 
