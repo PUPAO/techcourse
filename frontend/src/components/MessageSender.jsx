@@ -35,9 +35,9 @@ function MessageSender() {
   }, [socket]);
 
   // -----------------------
-  // 이름 전송(JOIN)
+  // 이름 전송(LOGIN)
   // -----------------------
-  const sendJoin = () => {
+  const sendLogin = () => {
     if (!name.trim()) {
       alert("이름을 입력하세요!");
       return;
@@ -51,7 +51,7 @@ function MessageSender() {
 
       ws.send(
         JSON.stringify({
-          type: "JOIN",
+          type: "LOGIN",
           name: name,
         }),
       );
@@ -157,7 +157,7 @@ function MessageSender() {
           }}
         />
         <button
-          onClick={sendJoin}
+          onClick={sendLogin}
           style={{
             padding: "10px 20px",
             marginLeft: "10px",
@@ -190,9 +190,9 @@ function MessageSender() {
 
       {!isFinished && (
         <div style={{ marginBottom: "20px" }}>
-          <button onClick={() => sendChoice("ROCK")}>바위</button>
-          <button onClick={() => sendChoice("PAPER")}>보</button>
-          <button onClick={() => sendChoice("SCISSORS")}>가위</button>
+          <button onClick={() => sendChoice("바위")}>바위</button>
+          <button onClick={() => sendChoice("보")}>보</button>
+          <button onClick={() => sendChoice("가위")}>가위</button>
         </div>
       )}
 

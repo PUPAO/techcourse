@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class MoveRule {
 
-    private static final String[] HANDS = {"주먹", "보", "가위"};
+    private static final String[] HANDS = {"바위", "보", "가위"};
 
     public static String randomHand() {
         return HANDS[new Random().nextInt(3)];

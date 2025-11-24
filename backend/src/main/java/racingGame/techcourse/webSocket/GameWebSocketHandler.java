@@ -29,8 +29,8 @@ public class GameWebSocketHandler extends TextWebSocketHandler {
         JSONObject json = new JSONObject(message.getPayload());
         String type = json.getString("type");
 
-        if ("JOIN".equals(type)) {
-            handleJoin(session, json);
+        if ("LOGIN".equals(type)) {
+            handleLogin(session, json);
         } else if ("PLAY".equals(type)) {
             handlePlay(session, json);
         } else if ("END".equals(type)) {
@@ -38,7 +38,7 @@ public class GameWebSocketHandler extends TextWebSocketHandler {
         }
     }
 
-    private void handleJoin(WebSocketSession session, JSONObject json) throws IOException {
+    private void handleLogin(WebSocketSession session, JSONObject json) throws IOException {
         Car state = players.get(session.getId());
         state.setName(json.getString("name"));
 
