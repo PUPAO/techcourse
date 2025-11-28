@@ -6,7 +6,8 @@
 5. 백엔드 및 이미지 저장소 기술 선택 이유
 6. 모노레포지토리를 선택한 이유
 7. 게임 흐름 설계
-8. 핵심 기능 정의
+8. 화면 이미지
+9. 핵심 기능 정의
 
 일단 주소를 먼저 알려드리겠습니다.
 
@@ -104,6 +105,16 @@ Docker 이미지 저장소는 GCP Artifact Registry를 선택했습니다.
 | 매 라운드마다 히스토리(HISTORY) 로그 누적 | O |
 | 사용자가 총 3번 패배하면 게임 종료 → 서버가 FINISH 메시지와 최종 라운드 수 반환 | O |
 | 게임 종료 화면에서 기록을 확인하고, “새 게임 시작”을 통해 다시 플레이 가능 | O |
+
+### **화면 이미지**
+1. 시작화면
+   <img width="1624" height="972" alt="스크린샷 2025-11-28 오후 7 31 19" src="https://github.com/user-attachments/assets/4989c536-a79f-49d0-b91f-837dcaab0416" />
+2. 게임 중 화면
+   <img width="1624" height="972" alt="스크린샷 2025-11-28 오후 7 31 09" src="https://github.com/user-attachments/assets/453f9f73-deda-4391-9938-509acae58863" />
+3. 개임 종료 알림 화면
+   <img width="1624" height="972" alt="스크린샷 2025-11-28 오후 7 31 14" src="https://github.com/user-attachments/assets/e9dbba37-b0c3-44cc-ad5f-9aff795fcd9f" />
+4. 게임 종료 화면
+   <img width="1624" height="972" alt="스크린샷 2025-11-28 오후 7 31 16" src="https://github.com/user-attachments/assets/f93d03ac-ad2a-4aae-a146-54751bcb9096" />
 
 
 ### **핵심 기능 정의**
